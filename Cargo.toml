@@ -1,0 +1,11 @@
+[package]
+name = "ofc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.96"
+clap = { version = "4.5.31", features = ["derive"] }
+ollama-rs = { version = "0.2.6", features = ["stream"] }
+tokio = { version = "1.43.0", features = ["full"] }
+tokio-stream = "0.1.17"
