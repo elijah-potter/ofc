@@ -9,6 +9,9 @@ use tokio_stream::StreamExt;
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Opts {
+    /// Set the Ollama host URL.
+    #[arg(long, default_value = "http://127.0.0.1:11434")]
+    host: String,
     /// Define the model to run on Ollama.
     #[arg(short, long, default_value = "phi4")]
     model: String,
@@ -32,7 +35,7 @@ struct Opts {
 async fn main() -> anyhow::Result<()> {
     let args = Opts::parse();
 
-    let ollama = Ollama::default();
+    let ollama = Ollama::try_new(&args.host)?;
 
     let mut stream = ollama
         .generate_stream(

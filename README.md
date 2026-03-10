@@ -30,6 +30,12 @@ You may can change the model from the default (phi4) and control context size an
 ofc --context 8192 --temperature 0.3 --model tinyllama "What is the best pizza?"
 ```
 
+You can also point `ofc` at a different Ollama host by passing the full base URL.
+
+```bash
+ofc --host http://192.168.1.50:11434 "Summarize the latest logs"
+```
+
 ## Previous Art
 
 `ofc` was inspired by [`ooo`](https://github.com/Npahlfer/ooo).
